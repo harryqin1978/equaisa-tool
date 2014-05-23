@@ -1,0 +1,109 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Project list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Phase</th>
+                <th>Type</th>
+                <th>Datestart</th>
+                <th>Dateend</th>
+                <th>Datedeadline</th>
+                <th>Initiator</th>
+                <th>Projectmanager</th>
+                <th>Accountmanager</th>
+                <th>Description</th>
+                <th>Notes</th>
+                <th>Url</th>
+                <th>Clientrepresentative</th>
+                <th>Contractedclient</th>
+                <th>Contractedentity</th>
+                <th>Paymentterms</th>
+                <th>Paymentcontractedexcl</th>
+                <th>Paymentcontractedtax</th>
+                <th>Paymentoutstandingexcl</th>
+                <th>Paymentoutstandingtax</th>
+                <th>Paymentfullfilledexcl</th>
+                <th>Paymentfullfilledtax</th>
+                <th>Paymentcurrency</th>
+                <th>Paymenttax</th>
+                <th>Paymentreceiveddate</th>
+                <th>Paymentduedate</th>
+                <th>Proposalstatus</th>
+                <th>Functionalspecificationstatus</th>
+                <th>Frameworkagreementstatus</th>
+                <th>Contractstatus</th>
+                <th>Rootid</th>
+                <th>Status</th>
+                <th>Moderator</th>
+                <th>Stamp</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('project_show', { 'id': entity.id }) }}">{{ entity.code }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.phase }}</td>
+                <td>{{ entity.type }}</td>
+                <td>{% if entity.dateStart and entity.dateStart.date|length == 19 %}{{ entity.dateStart|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateEnd and entity.dateEnd.date|length == 19 %}{{ entity.dateEnd|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateDeadline and entity.dateDeadline.date|length == 19 %}{{ entity.dateDeadline|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.initiator }}</td>
+                <td>{{ entity.projectManager }}</td>
+                <td>{{ entity.accountManager }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.notes }}</td>
+                <td>{{ entity.url }}</td>
+                <td>{{ entity.clientRepresentative }}</td>
+                <td>{{ entity.contractedClient }}</td>
+                <td>{{ entity.contractedEntity }}</td>
+                <td>{{ entity.paymentTerms }}</td>
+                <td>{{ entity.paymentContractedExcl }}</td>
+                <td>{{ entity.paymentContractedTax }}</td>
+                <td>{{ entity.paymentOutstandingExcl }}</td>
+                <td>{{ entity.paymentOutstandingTax }}</td>
+                <td>{{ entity.paymentFullfilledExcl }}</td>
+                <td>{{ entity.paymentFullfilledTax }}</td>
+                <td>{{ entity.paymentCurrency }}</td>
+                <td>{{ entity.paymentTax }}</td>
+                <td>{% if entity.paymentReceivedDate and entity.paymentReceivedDate.date|length == 19 %}{{ entity.paymentReceivedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.paymentDueDate and entity.paymentDueDate.date|length == 19 %}{{ entity.paymentDueDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.proposalStatus }}</td>
+                <td>{{ entity.functionalSpecificationStatus }}</td>
+                <td>{{ entity.frameworkAgreementStatus }}</td>
+                <td>{{ entity.contractStatus }}</td>
+                <td>{{ entity.rootId }}</td>
+                <td>{{ entity.status }}</td>
+                <td>{{ entity.moderator }}</td>
+                <td>{% if entity.stamp and entity.stamp.date|length == 19 %}{{ entity.stamp|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('project_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('project_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('project_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

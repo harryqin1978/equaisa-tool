@@ -1,0 +1,28 @@
+{% extends "FrontCodingEquasiaBundle::layout.html.twig" %}
+
+{% block breadcrumb %}
+    <li>
+        <a href="{{ path('contact') }}">Contact</a>
+        <span class="divider"></span>
+    </li>
+    <li>{{ entity.firstnameLanguage1 }} {{ entity.familynameLanguage1 }}</li>
+{% endblock %}
+
+{% block pagetitle %}{{ entity.firstnameLanguage1 }} {{ entity.familynameLanguage1 }}{% endblock %}
+
+{% block nav %}
+    {% include "FrontCodingEquasiaBundle:Contact:nav.html.twig" %}
+{% endblock %}
+
+{% block content -%}
+    <h1>{{ entity.firstnameLanguage1 }} {{ entity.familynameLanguage1 }}</h1>
+
+    {{ form(edit_form) }}
+
+    <a href="{{ path('contact') }}" class="btn btn-primary btn-lg">
+        Back to the list
+    </a>
+
+    {{ form(delete_form) }}
+</ul>
+{% endblock %}

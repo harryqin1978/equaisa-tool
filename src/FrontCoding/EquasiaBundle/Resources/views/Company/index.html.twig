@@ -1,0 +1,90 @@
+{% extends "FrontCodingEquasiaBundle::layout.html.twig" %}
+
+{% block pagetitle %}Company list{% endblock %}
+
+{% block breadcrumb %}
+    <li>Company</li>
+{% endblock %}
+
+{% block nav %}
+    {% include "FrontCodingEquasiaBundle:Company:nav.html.twig" %}
+{% endblock %}
+
+{% block content %}
+    <h1>Company list</h1>
+
+    <table class="records_list table table-bordered table-striped table-hover table-condensed">
+        <thead>
+            <tr>
+                <th class="th_pad">Name (English)</th>
+                <th>Name (Native languge)</th>
+                <th>Jurisdiction</th>
+                <th>Registration number</th>
+                <th>Registration city (English)</th>
+                <th>Registration city (Native language)</th>
+                <th>Date of incorporation</th>
+                <th>Date of termination</th>
+{#                 <th>Name of address (English)</th>
+                <th>Name of address (Native language)</th>
+                <th>Address line 1 (English)</th>
+                <th>Address line 1 (Native language)</th>
+                <th>Address line 2 (English)</th>
+                <th>Address line 2 (Native language)</th>
+                <th>City (English)</th>
+                <th>City (Native language)</th>
+                <th>Region (English)</th>
+                <th>Region (Native language)</th>
+                <th>Zip / postal code</th>
+                <th>Country (English)</th>
+                <th>Country (Native language)</th>
+                <th>Moderator</th>
+                <th>Stamp</th>      
+                <th>Id</th>
+ #}                <th class="widths">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('company_show', { 'id': entity.id }) }}">{{ entity.nameLanguage1 }}</a></td>
+                <td>{{ entity.nameLanguage2 }}</td>
+                <td>{{ entity.jurisdiction.nameLanguage1 }} / {{ entity.jurisdiction.nameLanguage2 }}</td>
+                <td>{{ entity.registrationNumber }}</td>
+                <td>{{ entity.registrationCityLanguage1 }}</td>
+                <td>{{ entity.registrationCityLanguage2 }}</td>
+                <td>{% if entity.dateOfIncorporation %}{{ entity.dateOfIncorporation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateOfTermination %}{{ entity.dateOfTermination|date('Y-m-d H:i:s') }}{% endif %}</td>
+{#                 <td>{{ entity.nameOfAddressLanguage1 }}</td>
+                <td>{{ entity.nameOfAddressLanguage2 }}</td>
+                <td>{{ entity.addressLine1Language1 }}</td>
+                <td>{{ entity.addressLine1Language2 }}</td>
+                <td>{{ entity.addressLine2Language1 }}</td>
+                <td>{{ entity.addressLine2Language2 }}</td>
+                <td>{{ entity.cityLanguage1 }}</td>
+                <td>{{ entity.cityLanguage2 }}</td>
+                <td>{{ entity.regionLanguage1 }}</td>
+                <td>{{ entity.regionLanguage2 }}</td>
+                <td>{{ entity.zipPostalCode }}</td>
+                <td>{{ entity.countryLanguage1 }}</td>
+                <td>{{ entity.countryLanguage2 }}</td>
+                <td>{{ entity.moderator }}</td>
+                <td>{% if entity.stamp %}{{ entity.stamp|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.id }}</td>
+ #}             <td>
+                    <div class="btn-group">
+                        <a href="{{ path('company_show', { 'id': entity.id }) }}" class="btn btn-alt btn-primary" title="Show" alt="Show"><span class="awe-tasks"></span></a>
+                        <a href="{{ path('company_edit', { 'id': entity.id }) }}" class="btn btn-alt btn-primary" title="Edit" alt="Edit"><span class="awe-wrench"></span></a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% include "FrontCodingEquasiaBundle::pagination.html.twig" %}
+
+    <a href="{{ path('company_new') }}" class="btn btn-primary btn-lg">
+        Create a new entry
+    </a>
+
+{% endblock %}

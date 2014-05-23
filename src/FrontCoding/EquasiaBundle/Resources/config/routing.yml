@@ -1,0 +1,415 @@
+front_coding_equasia_homepage:
+    pattern:  /
+    defaults: { _controller: FrontCodingEquasiaBundle:Default:index }
+
+
+
+login:
+    path:   /login
+    defaults:  { _controller: FrontCodingEquasiaBundle:User:login }
+login_check:
+    path:   /login_check
+logout:
+    path:   /logout
+
+
+
+locale_switch:
+  pattern:  /locale/switch/{locale}
+  defaults: { _controller: FrontCodingEquasiaBundle:Locale:switch }
+
+
+
+dashboard:
+  pattern:  /dashboard
+  defaults: { _controller: FrontCodingEquasiaBundle:Dashboard:index }
+
+
+
+company:
+  pattern:  /company
+  defaults: { _controller: FrontCodingEquasiaBundle:Company:index }
+
+company_create:
+  pattern:  /company/create
+  defaults: { _controller: FrontCodingEquasiaBundle:Company:create }
+
+company_new:
+  pattern:  /company/new
+  defaults: { _controller: FrontCodingEquasiaBundle:Company:new }
+
+company_show:
+  pattern:  /company/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Company:show }
+
+company_edit:
+  pattern:  /company/edit/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Company:edit }
+
+company_update:
+  pattern:  /company/update/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Company:update }
+
+company_delete:
+  pattern:  /company/delete/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Company:delete }
+
+
+
+jurisdiction:
+  pattern:  /jurisdiction
+  defaults: { _controller: FrontCodingEquasiaBundle:Jurisdiction:index }
+
+jurisdiction_create:
+  pattern:  /jurisdiction/create
+  defaults: { _controller: FrontCodingEquasiaBundle:Jurisdiction:create }
+
+jurisdiction_new:
+  pattern:  /jurisdiction/new
+  defaults: { _controller: FrontCodingEquasiaBundle:Jurisdiction:new }
+
+jurisdiction_show:
+  pattern:  /jurisdiction/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Jurisdiction:show }
+
+jurisdiction_edit:
+  pattern:  /jurisdiction/edit/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Jurisdiction:edit }
+
+jurisdiction_update:
+  pattern:  /jurisdiction/update/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Jurisdiction:update }
+
+jurisdiction_delete:
+  pattern:  /jurisdiction/delete/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Jurisdiction:delete }
+
+
+
+client:
+  pattern:  /client
+  defaults: { _controller: FrontCodingEquasiaBundle:Client:index }
+
+client_create:
+  pattern:  /client/create
+  defaults: { _controller: FrontCodingEquasiaBundle:Client:create }
+
+client_new:
+  pattern:  /client/new
+  defaults: { _controller: FrontCodingEquasiaBundle:Client:new }
+
+client_show:
+  pattern:  /client/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Client:show }
+
+client_edit:
+  pattern:  /client/edit/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Client:edit }
+
+client_update:
+  pattern:  /client/update/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Client:update }
+
+client_delete:
+  pattern:  /client/delete/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Client:delete }
+
+
+
+contact:
+  pattern:  /contact
+  defaults: { _controller: FrontCodingEquasiaBundle:Contact:index }
+
+contact_create:
+  pattern:  /contact/create
+  defaults: { _controller: FrontCodingEquasiaBundle:Contact:create }
+
+contact_new:
+  pattern:  /contact/new
+  defaults: { _controller: FrontCodingEquasiaBundle:Contact:new }
+
+contact_show:
+  pattern:  /contact/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Contact:show }
+
+contact_edit:
+  pattern:  /contact/edit/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Contact:edit }
+
+contact_update:
+  pattern:  /contact/update/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Contact:update }
+
+contact_delete:
+  pattern:  /contact/delete/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Contact:delete }
+
+
+
+currency:
+  pattern:  /currency
+  defaults: { _controller: FrontCodingEquasiaBundle:Currency:index }
+
+currency_create:
+  pattern:  /currency/create
+  defaults: { _controller: FrontCodingEquasiaBundle:Currency:create }
+
+currency_new:
+  pattern:  /currency/new
+  defaults: { _controller: FrontCodingEquasiaBundle:Currency:new }
+
+currency_show:
+  pattern:  /currency/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Currency:show }
+
+currency_edit:
+  pattern:  /currency/edit/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Currency:edit }
+
+currency_update:
+  pattern:  /currency/update/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Currency:update }
+
+currency_delete:
+  pattern:  /currency/delete/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Currency:delete }
+
+
+
+employee:
+  pattern:  /employee
+  defaults: { _controller: FrontCodingEquasiaBundle:Employee:index }
+
+employee_create:
+  pattern:  /employee/create
+  defaults: { _controller: FrontCodingEquasiaBundle:Employee:create }
+
+employee_new:
+  pattern:  /employee/new
+  defaults: { _controller: FrontCodingEquasiaBundle:Employee:new }
+
+employee_show:
+  pattern:  /employee/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Employee:show }
+
+employee_edit:
+  pattern:  /employee/edit/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Employee:edit }
+
+employee_update:
+  pattern:  /employee/update/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Employee:update }
+
+employee_delete:
+  pattern:  /employee/delete/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Employee:delete }
+
+
+
+jobtitle:
+  pattern:  /jobtitle
+  defaults: { _controller: FrontCodingEquasiaBundle:JobTitle:index }
+
+jobtitle_create:
+  pattern:  /jobtitle/create
+  defaults: { _controller: FrontCodingEquasiaBundle:JobTitle:create }
+
+jobtitle_new:
+  pattern:  /jobtitle/new
+  defaults: { _controller: FrontCodingEquasiaBundle:JobTitle:new }
+
+jobtitle_show:
+  pattern:  /jobtitle/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:JobTitle:show }
+
+jobtitle_edit:
+  pattern:  /jobtitle/edit/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:JobTitle:edit }
+
+jobtitle_update:
+  pattern:  /jobtitle/update/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:JobTitle:update }
+
+jobtitle_delete:
+  pattern:  /jobtitle/delete/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:JobTitle:delete }
+
+
+
+project:
+  pattern:  /project
+  defaults: { _controller: FrontCodingEquasiaBundle:Project:index }
+
+project_create:
+  pattern:  /project/create
+  defaults: { _controller: FrontCodingEquasiaBundle:Project:create }
+
+project_new:
+  pattern:  /project/new
+  defaults: { _controller: FrontCodingEquasiaBundle:Project:new }
+
+project_show:
+  pattern:  /project/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Project:show }
+
+project_edit:
+  pattern:  /project/edit/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Project:edit }
+
+project_update:
+  pattern:  /project/update/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Project:update }
+
+project_delete:
+  pattern:  /project/delete/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Project:delete }
+
+
+
+projectphase:
+  pattern:  /projectphase
+  defaults: { _controller: FrontCodingEquasiaBundle:ProjectPhase:index }
+
+projectphase_create:
+  pattern:  /projectphase/create
+  defaults: { _controller: FrontCodingEquasiaBundle:ProjectPhase:create }
+
+projectphase_new:
+  pattern:  /projectphase/new
+  defaults: { _controller: FrontCodingEquasiaBundle:ProjectPhase:new }
+
+projectphase_show:
+  pattern:  /projectphase/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:ProjectPhase:show }
+
+projectphase_edit:
+  pattern:  /projectphase/edit/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:ProjectPhase:edit }
+
+projectphase_update:
+  pattern:  /projectphase/update/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:ProjectPhase:update }
+
+projectphase_delete:
+  pattern:  /projectphase/delete/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:ProjectPhase:delete }
+
+
+
+projecttype:
+  pattern:  /projecttype
+  defaults: { _controller: FrontCodingEquasiaBundle:ProjectType:index }
+
+projecttype_create:
+  pattern:  /projecttype/create
+  defaults: { _controller: FrontCodingEquasiaBundle:ProjectType:create }
+
+projecttype_new:
+  pattern:  /projecttype/new
+  defaults: { _controller: FrontCodingEquasiaBundle:ProjectType:new }
+
+projecttype_show:
+  pattern:  /projecttype/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:ProjectType:show }
+
+projecttype_edit:
+  pattern:  /projecttype/edit/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:ProjectType:edit }
+
+projecttype_update:
+  pattern:  /projecttype/update/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:ProjectType:update }
+
+projecttype_delete:
+  pattern:  /projecttype/delete/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:ProjectType:delete }
+
+
+
+task:
+  pattern:  /task
+  defaults: { _controller: FrontCodingEquasiaBundle:Task:index }
+
+task_create:
+  pattern:  /task/create
+  defaults: { _controller: FrontCodingEquasiaBundle:Task:create }
+
+task_new:
+  pattern:  /task/new
+  defaults: { _controller: FrontCodingEquasiaBundle:Task:new }
+
+task_show:
+  pattern:  /task/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Task:show }
+
+task_edit:
+  pattern:  /task/edit/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Task:edit }
+
+task_update:
+  pattern:  /task/update/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Task:update }
+
+task_delete:
+  pattern:  /task/delete/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Task:delete }
+
+
+
+timelog:
+  pattern:  /timelog
+  defaults: { _controller: FrontCodingEquasiaBundle:Timelog:index }
+
+timelog_create:
+  pattern:  /timelog/create
+  defaults: { _controller: FrontCodingEquasiaBundle:Timelog:create }
+
+timelog_new:
+  pattern:  /timelog/new
+  defaults: { _controller: FrontCodingEquasiaBundle:Timelog:new }
+
+timelog_show:
+  pattern:  /timelog/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Timelog:show }
+
+timelog_edit:
+  pattern:  /timelog/edit/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Timelog:edit }
+
+timelog_update:
+  pattern:  /timelog/update/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Timelog:update }
+
+timelog_delete:
+  pattern:  /timelog/delete/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:Timelog:delete }
+
+
+
+userpermissions:
+  pattern:  /userpermissions
+  defaults: { _controller: FrontCodingEquasiaBundle:UserPermissions:index }
+
+userpermissions_create:
+  pattern:  /userpermissions/create
+  defaults: { _controller: FrontCodingEquasiaBundle:UserPermissions:create }
+
+userpermissions_new:
+  pattern:  /userpermissions/new
+  defaults: { _controller: FrontCodingEquasiaBundle:UserPermissions:new }
+
+userpermissions_show:
+  pattern:  /userpermissions/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:UserPermissions:show }
+
+userpermissions_edit:
+  pattern:  /userpermissions/edit/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:UserPermissions:edit }
+
+userpermissions_update:
+  pattern:  /userpermissions/update/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:UserPermissions:update }
+
+userpermissions_delete:
+  pattern:  /userpermissions/delete/{id}
+  defaults: { _controller: FrontCodingEquasiaBundle:UserPermissions:delete }

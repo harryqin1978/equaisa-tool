@@ -1,0 +1,145 @@
+{% extends 'FrontCodingEquasiaBundle::base.html.twig' %}
+
+{% block stylesheets %}
+    {# <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-responsive.min.css') }}" /> #}
+    <link rel="stylesheet" href="{{ asset('bootstrap3/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/jquery.ui.theme.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/jquery.ui.datepicker.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/jquery.visualize.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/jquery.fullcalendar.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/organon-blue.css') }}" />
+    {# <link rel="stylesheet" href="{{ asset('css/equasia/style.css') }}" /> #}
+    <link rel="stylesheet" href="{{ asset('css/equasia/style1.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/modernizr.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/selectivizr.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/navigation.js') }}"></script>
+    <!--<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>-->
+    <script type="text/javascript" src="{{ asset('bootstrap3/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.fullcalendar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.visualize.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.visualize.tooltip.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.sparkline.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.ui.core.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.ui.datepicker.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/equasia.js') }}"></script>
+{% endblock %}
+
+{% block title %}
+    {% block pagetitle %}{% endblock %}
+    | Equasia
+{% endblock %}
+
+{% block body %}
+    
+    <header class="navbar">
+            
+        <!-- Navbar style -->
+        <div class="navbar-inner">
+            
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <a class="btn btn-alt btn-primary btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            
+            <!-- Sample logo -->
+            <a href="#" class="brand" title="" data-original-title="Back to homepage">Equasia</a> 
+            
+            <!-- Everything you want hidden at 940px or less, place within here -->
+            <div class="nav-collapse">
+            
+                <!-- Header navigation -->
+                <nav>
+                    <ul role="navigation">
+                        {% if is_granted('ROLE_USER') %}
+                            <li{% if get_controller_name() == 'dashboard' %} class="active"{% endif %}>
+                                <a href="{{ path('dashboard') }}"><span class="awe-leaf"></span>Dashboard</a>
+                            </li>
+                        {% endif %}
+                        {% if is_granted('ROLE_EMPLOYEE') %}
+                            <li{% if get_controller_name() == 'jurisdiction' %} class="active"{% endif %}>
+                                <a href="{{ path('jurisdiction') }}"><span class="awe-plane"></span>Jurisdiction</a>
+                            </li>
+                        {% endif %}
+                        {% if is_granted('ROLE_EMPLOYEE') %}
+                            <li{% if get_controller_name() == 'employee' %} class="active"{% endif %}>
+                                <a href="{{ path('employee') }}"><span class="awe-magnet"></span>Employee</a>
+                            </li>
+                        {% endif %}
+                        {% if is_granted('ROLE_EMPLOYEE') %}
+                            <li{% if get_controller_name() == 'contact' %} class="active"{% endif %}>
+                                <a href="{{ path('contact') }}"><span class="awe-random"></span>Contact</a>
+                            </li>
+                        {% endif %}
+                        {% if is_granted('ROLE_EMPLOYEE') %}
+                            <li{% if get_controller_name() == 'company' %} class="active"{% endif %}>
+                                <a href="{{ path('company') }}"><span class="awe-screenshot"></span>Company</a>
+                            </li>
+                        {% endif %}
+                        {% if is_granted('ROLE_EMPLOYEE') or is_granted('ROLE_CONTACT') %}
+                            <li{% if get_controller_name() == 'client' %} class="active"{% endif %}>
+                                <a href="{{ path('client') }}"><span class="awe-plus-sign"></span>Client</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                <!-- /Header navigation -->
+                
+                <!-- Logout -->
+                {% if is_granted('ROLE_USER') %}
+                    <a class="navbar-logout" href="{{ path('logout') }}"><span class="awe-off"></span>{% trans %}Logout{% endtrans %}</a>
+                {% endif %}
+                
+                <!-- Header search box -->
+                <form class="form-search pull-right">
+                    <input type="text" class="search-query" name="search" title="Enter the search term" placeholder="Search…" autocomplete="on">
+                    <button type="submit" class="btn btn-alt btn-primary">Search</button>
+                </form>
+                <!-- /Header search box -->
+            
+            </div>
+        
+        </div>
+        <!-- /Navbar style -->
+    
+    </header>
+
+    <div class="alert alert-info fade in">
+        {# <button type="button" class="close" data-dismiss="alert"><span class="awe-remove-circle"></span></button> #}
+        {% if is_granted('ROLE_USER') %}
+            Hello, {{ app.user.username }} ({{ app.user.emailCompany }}). <a href="{{ path('logout') }}">{% trans %}Logout{% endtrans %}</a>
+        {% else %}
+            You are not <a href="{{ path('login') }}">logged in</a>.
+        {% endif %}
+        <div style="float: right">
+            <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge(app.request.query.all)|merge({'_locale': 'en'})) }}">EN</a>
+            <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge(app.request.query.all)|merge({'_locale': 'cn'})) }}">CN</a>
+        </div>
+    </div>    
+
+    <div class="container-fluid">
+
+        <div class="sidebar">
+            <nav class="main-navigation" role="navigation">
+                <ul>
+                    {% block nav %}{% endblock %}
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content-block" role="main">
+            <ul class="breadcrumb">
+                <li><a href="{{ path('front_coding_equasia_homepage') }}"><span class="awe-home"></span></a><span class="divider"></span></li>
+                {% block breadcrumb %}{% endblock %}
+            </ul>
+            {% block content %}{% endblock %}
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Timelog</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Taskcode</th>
+                <td>{{ entity.taskcode }}</td>
+            </tr>
+            <tr>
+                <th>Projectcode</th>
+                <td>{{ entity.projectcode }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ entity.category }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ entity.description }}</td>
+            </tr>
+            <tr>
+                <th>Employee</th>
+                <td>{{ entity.employee }}</td>
+            </tr>
+            <tr>
+                <th>Datestart</th>
+                <td>{{ entity.datestart|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Timestart</th>
+                <td>{{ entity.timestart }}</td>
+            </tr>
+            <tr>
+                <th>Dateed</th>
+                <td>{{ entity.dateed|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Timeed</th>
+                <td>{{ entity.timeed }}</td>
+            </tr>
+            <tr>
+                <th>Moderator</th>
+                <td>{{ entity.moderator }}</td>
+            </tr>
+            <tr>
+                <th>Stamp</th>
+                <td>{{ entity.stamp|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('timelog') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('timelog_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

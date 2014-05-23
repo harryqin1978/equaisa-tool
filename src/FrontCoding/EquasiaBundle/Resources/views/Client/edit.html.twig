@@ -1,0 +1,28 @@
+{% extends "FrontCodingEquasiaBundle::layout.html.twig" %}
+
+{% block breadcrumb %}
+    <li>
+        <a href="{{ path('client') }}">Client</a>
+        <span class="divider"></span>
+    </li>
+    <li>{{ entity.nameLanguage1 }}{% if entity.nameLanguage2 %} / {{ entity.nameLanguage2 }}{% endif %}</li>
+{% endblock %}
+
+{% block pagetitle %}{{ entity.nameLanguage1 }}{% if entity.nameLanguage2 %} / {{ entity.nameLanguage2 }}{% endif %}{% endblock %}
+
+{% block nav %}
+    {% include "FrontCodingEquasiaBundle:Client:nav.html.twig" %}
+{% endblock %}
+
+{% block content -%}
+    <h1>{{ entity.nameLanguage1 }}</h1>
+
+    {{ form(edit_form) }}
+
+    <a href="{{ path('client') }}" class="btn btn-primary btn-lg">
+        Back to the list
+    </a>
+    
+    {{ form(delete_form) }}
+
+{% endblock %}

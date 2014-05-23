@@ -1,0 +1,53 @@
+.navbar .brand, .sidebar .brand {
+  background-image: url(../../img/equasia.png);
+  background-position: 10px 10px;
+}
+
+.content-block form button[type="submit"] {
+  margin-top: 10px;
+}
+
+.record_properties {
+  margin-bottom: 10px;
+}
+
+.pagination {
+  margin-bottom: 0;
+}
+
+/* change when bootstrap is v3 */
+
+.btn-group{
+	width: 87px;
+}
+
+.records_list ul{
+	margin: 0px;
+	padding: 0px;
+}
+
+.records_list ul li{
+	float:left;
+}
+
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+  border: 1px solid #000;
+  border-spacing: 0;
+  border-collapse: 0;
+}
+
+.table-bordered {
+  border-collapse: collapse;
+}
+
+.breadcrumb>li+li:before {
+  content: none;
+}
+
+.breadcrumb {
+  height: 30px;
+}
+
+input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+  height: 28px;
+}

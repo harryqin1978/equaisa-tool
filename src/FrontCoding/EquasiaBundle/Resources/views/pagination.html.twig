@@ -1,0 +1,11 @@
+<div class="pagination">
+    <ul>
+        {% if page_num > 1 %}<li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge(app.request.query.all)|merge({page : 1})) }}">First</a></li>{% endif %}
+        {% if page_num > 1 %}<li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge(app.request.query.all)|merge({page : page_num - 1})) }}">Previous</a></li>{% endif %}
+        {% if page_num < page_count %}<li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge(app.request.query.all)|merge({page : page_num + 1})) }}">Next</a></li>{% endif %}
+        {% if page_num < page_count %}<li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge(app.request.query.all)|merge({page : page_count})) }}">Last</a></li>{% endif %}
+    </ul>
+</div>
+<div>page {{ page_num }} of {{ page_count }}</div>
+
+<br />

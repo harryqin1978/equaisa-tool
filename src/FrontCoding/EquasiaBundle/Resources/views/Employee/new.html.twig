@@ -1,0 +1,26 @@
+{% extends "FrontCodingEquasiaBundle::layout.html.twig" %}
+
+{% block breadcrumb %}
+    <li>
+        <a href="{{ path('employee') }}">Employee</a>
+        <span class="divider"></span>
+    </li>
+    <li>Employee creation</li>
+{% endblock %}
+
+{% block pagetitle %}Employee creation{% endblock %}
+
+{% block nav %}
+    {% include "FrontCodingEquasiaBundle:Employee:nav.html.twig" %}
+{% endblock %}
+
+{% block content -%}
+    <h1>Employee creation</h1>
+
+    {{ form(form) }}
+
+    <a href="{{ path('employee') }}" class="btn btn-primary btn-lg">
+        Back to the list
+    </a>
+
+{% endblock %}

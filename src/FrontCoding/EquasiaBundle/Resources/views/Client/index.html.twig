@@ -1,0 +1,108 @@
+{% extends "FrontCodingEquasiaBundle::layout.html.twig" %}
+
+{% block pagetitle %}Client list{% endblock %}
+
+{% block breadcrumb %}
+    <li>Client</li>
+{% endblock %}
+
+{% block nav %}
+    {% include "FrontCodingEquasiaBundle:Client:nav.html.twig" %}
+{% endblock %}
+
+{% block content -%}
+    <h1>Client list</h1>
+
+    <table class="records_list table table-bordered table-striped table-hover table-condensed">
+        <thead>
+            <tr>
+                <th>Name (English)</th>
+                <th>Name (Native language)</th>
+                <th>Company</th>
+                <th>Contact</th>
+{#                 <th>Invoicingnameofaddresslanguage1</th>
+                <th>Invoicingnameofaddresslanguage2</th>
+                <th>Invoicingaddressline1language1</th>
+                <th>Invoicingaddressline1language2</th>
+                <th>Invoicingaddressline2language1</th>
+                <th>Invoicingaddressline2language2</th>
+                <th>Invoicingcitylanguage1</th>
+                <th>Invoicingcitylanguage2</th>
+                <th>Invoicingregionlanguage1</th>
+                <th>Invoicingregionlanguage2</th>
+                <th>Invoicingzippostalcode</th>
+                <th>Invoicingcountrylanguage1</th>
+                <th>Invoicingcountrylanguage2</th>
+                <th>Visitingnameofaddresslanguage1</th>
+                <th>Visitingnameofaddresslanguage2</th>
+                <th>Visitingaddressline1language1</th>
+                <th>Visitingaddressline1language2</th>
+                <th>Visitingaddressline2language1</th>
+                <th>Visitingaddressline2language2</th>
+                <th>Visitingcitylanguage1</th>
+                <th>Visitingcitylanguage2</th>
+                <th>Visitingregionlanguage1</th>
+                <th>Visitingregionlanguage2</th>
+                <th>Visitingzippostalcode</th>
+                <th>Visitingcountrylanguage1</th>
+                <th>Visitingcountrylanguage2</th>
+                <th>Moderator</th>
+                <th>Stamp</th>
+                <th>Id</th>
+ #}                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('client_show', { 'id': entity.id }) }}">{{ entity.nameLanguage1 }}</a></td>
+                <td>{{ entity.nameLanguage2 }}</td>
+                <td>{{ entity.company.nameLanguage1 }}</td>
+                <td>{{ entity.contact.firstnameLanguage1 }} {{ entity.contact.familynameLanguage1 }}</td>
+{#                 <td>{{ entity.invoicingNameOfAddressLanguage1 }}</td>
+                <td>{{ entity.invoicingNameOfAddressLanguage2 }}</td>
+                <td>{{ entity.invoicingAddressLine1Language1 }}</td>
+                <td>{{ entity.invoicingAddressLine1Language2 }}</td>
+                <td>{{ entity.invoicingAddressLine2Language1 }}</td>
+                <td>{{ entity.invoicingAddressLine2Language2 }}</td>
+                <td>{{ entity.invoicingCityLanguage1 }}</td>
+                <td>{{ entity.invoicingCityLanguage2 }}</td>
+                <td>{{ entity.invoicingRegionLanguage1 }}</td>
+                <td>{{ entity.invoicingRegionLanguage2 }}</td>
+                <td>{{ entity.invoicingZipPostalCode }}</td>
+                <td>{{ entity.invoicingCountryLanguage1 }}</td>
+                <td>{{ entity.invoicingCountryLanguage2 }}</td>
+                <td>{{ entity.visitingNameOfAddressLanguage1 }}</td>
+                <td>{{ entity.visitingNameOfAddressLanguage2 }}</td>
+                <td>{{ entity.visitingAddressLine1Language1 }}</td>
+                <td>{{ entity.visitingAddressLine1Language2 }}</td>
+                <td>{{ entity.visitingAddressLine2Language1 }}</td>
+                <td>{{ entity.visitingAddressLine2Language2 }}</td>
+                <td>{{ entity.visitingCityLanguage1 }}</td>
+                <td>{{ entity.visitingCityLanguage2 }}</td>
+                <td>{{ entity.visitingRegionLanguage1 }}</td>
+                <td>{{ entity.visitingRegionLanguage2 }}</td>
+                <td>{{ entity.visitingZipPostalCode }}</td>
+                <td>{{ entity.visitingCountryLanguage1 }}</td>
+                <td>{{ entity.visitingCountryLanguage2 }}</td>
+                <td>{{ entity.moderator }}</td>
+                <td>{% if entity.stamp %}{{ entity.stamp|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.id }}</td>
+ #}             <td>
+                    <div class="btn-group">
+                        <a href="{{ path('client_show', { 'id': entity.id }) }}" class="btn btn-alt btn-primary" title="Show" alt="Show"><span class="awe-tasks"></span></a>
+                        <a href="{{ path('client_edit', { 'id': entity.id }) }}" class="btn btn-alt btn-primary" title="Edit" alt="Edit"><span class="awe-wrench"></span></a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% include "FrontCodingEquasiaBundle::pagination.html.twig" %}
+
+    <a href="{{ path('client_new') }}" class="btn btn-primary btn-lg">
+        Create a new entry
+    </a>
+
+{% endblock %}

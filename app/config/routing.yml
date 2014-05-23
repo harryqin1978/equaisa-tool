@@ -1,0 +1,4 @@
+front_coding_equasia:
+    resource: "@FrontCodingEquasiaBundle/Resources/config/routing.yml"
+    prefix:   /
+

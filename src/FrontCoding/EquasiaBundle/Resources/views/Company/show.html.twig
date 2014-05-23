@@ -1,0 +1,135 @@
+{% extends "FrontCodingEquasiaBundle::layout.html.twig" %}
+
+{% block breadcrumb %}
+    <li>
+        <a href="{{ path('company') }}">Company</a>
+        <span class="divider"></span>
+    </li>
+    <li>{{ entity.nameLanguage1 }}{% if entity.nameLanguage2 %} / {{ entity.nameLanguage2 }}{% endif %}</li>
+{% endblock %}
+
+{% block pagetitle %}{{ entity.nameLanguage1 }}{% if entity.nameLanguage2 %} / {{ entity.nameLanguage2 }}{% endif %}{% endblock %}
+
+{% block nav %}
+    {% include "FrontCodingEquasiaBundle:Company:nav.html.twig" %}
+{% endblock %}
+
+{% block content -%}
+    <h1>{{ entity.nameLanguage1 }}{% if entity.nameLanguage2 %} / {{ entity.nameLanguage2 }}{% endif %}</h1>
+
+    <table class="record_properties table table-bordered table-striped table-hover table-condensed" id="table_left">
+        <tbody>
+            <tr>
+                <th>Name (English)</th>
+                <td>{{ entity.nameLanguage1 }}</td>
+            </tr>
+            <tr>
+                <th>Name (Native language)</th>
+                <td>{{ entity.nameLanguage2 }}</td>
+            </tr>
+            <tr>
+                <th>Jurisdiction</th>
+                <td>{{ entity.jurisdiction.nameLanguage1 }} / {{ entity.jurisdiction.nameLanguage2 }}</td>
+            </tr>
+            <tr>
+                <th>Registration number</th>
+                <td>{{ entity.registrationNumber }}</td>
+            </tr>
+            <tr>
+                <th>Registration city (English)</th>
+                <td>{{ entity.registrationCityLanguage1 }}</td>
+            </tr>
+            <tr>
+                <th>Registration city (Native language)</th>
+                <td>{{ entity.registrationCityLanguage2 }}</td>
+            </tr>
+            <tr>
+                <th>Date of incorporation</th>
+                <td>{% if entity.dateOfIncorporation %}{{ entity.dateOfIncorporation|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Date of termination</th>
+                <td>{% if entity.dateOfTermination %}{{  entity.dateOfTermination|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Name of address (English)</th>
+                <td>{{ entity.nameOfAddressLanguage1 }}</td>
+            </tr>
+            <tr>
+                <th>Name of address (Native language)</th>
+                <td>{{ entity.nameOfAddressLanguage2 }}</td>
+            </tr>
+            <tr>
+                <th>Address line 1 (English)</th>
+                <td>{{ entity.addressLine1Language1 }}</td>
+            </tr>
+            <tr>
+                <th>Address line 1 (Native language)</th>
+                <td>{{ entity.addressLine1Language2 }}</td>
+            </tr>
+            <tr>
+                <th>Address line 2 (English)</th>
+                <td>{{ entity.addressLine2Language1 }}</td>
+            </tr>
+            <tr>
+                <th>Address line 2 (Native language)</th>
+                <td>{{ entity.addressLine2Language2 }}</td>
+            </tr>
+            <tr>
+                <th>City (English)</th>
+                <td>{{ entity.cityLanguage1 }}</td>
+            </tr>
+            <tr>
+                <th>City (Native language)</th>
+                <td>{{ entity.cityLanguage2 }}</td>
+            </tr>
+            <tr>
+                <th>Region (English)</th>
+                <td>{{ entity.regionLanguage1 }}</td>
+            </tr>
+            <tr>
+                <th>Region (Native language)</th>
+                <td>{{ entity.regionLanguage2 }}</td>
+            </tr>
+            <tr>
+                <th>Zip / postal code</th>
+                <td>{{ entity.zipPostalCode }}</td>
+            </tr>
+            <tr>
+                <th>Country (English)</th>
+                <td>{{ entity.countryLanguage1 }}</td>
+            </tr>
+            <tr>
+                <th>Country (Native language)</th>
+                <td>{{ entity.countryLanguage2 }}</td>
+            </tr>
+{#             <tr>
+                <th>Moderator</th>
+                <td>{{ entity.moderator }}</td>
+            </tr>
+            <tr>
+                <th>Stamp</th>
+                <td>{{ entity.stamp|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr> #}
+        </tbody>
+    </table>
+
+      
+       <p> <a href="{{ path('company') }}" class="btn btn-primary btn-lg">
+            Back to the list
+        </a>
+    </p>
+    
+     
+       <p> <a href="{{ path('company_edit', { 'id': entity.id }) }}" class="btn btn-primary btn-lg">
+            Edit
+        </a>
+    </p>
+     
+    {{ form(delete_form) }} 
+ 
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Task list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Projectid</th>
+                <th>Priority</th>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Assignedto</th>
+                <th>Assignedby</th>
+                <th>Checkedby</th>
+                <th>Datetimestart</th>
+                <th>Datetimeend</th>
+                <th>Datetimedeadline</th>
+                <th>Espectedduration</th>
+                <th>Status</th>
+                <th>Moderator</th>
+                <th>Stamp</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('task_show', { 'id': entity.id }) }}">{{ entity.projectId }}</a></td>
+                <td>{{ entity.priority }}</td>
+                <td>{{ entity.category }}</td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.assignedTo }}</td>
+                <td>{{ entity.assignedBy }}</td>
+                <td>{{ entity.checkedBy }}</td>
+                <td>{% if entity.datetimeStart %}{{ entity.datetimeStart|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.datetimeEnd %}{{ entity.datetimeEnd|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.datetimeDeadline %}{{ entity.datetimeDeadline|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.espectedDuration }}</td>
+                <td>{{ entity.status }}</td>
+                <td>{{ entity.moderator }}</td>
+                <td>{% if entity.stamp %}{{ entity.stamp|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('task_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('task_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('task_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

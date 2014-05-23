@@ -1,0 +1,63 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Timelog list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Taskcode</th>
+                <th>Projectcode</th>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Employee</th>
+                <th>Datestart</th>
+                <th>Timestart</th>
+                <th>Dateed</th>
+                <th>Timeed</th>
+                <th>Moderator</th>
+                <th>Stamp</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('timelog_show', { 'id': entity.id }) }}">{{ entity.taskcode }}</a></td>
+                <td>{{ entity.projectcode }}</td>
+                <td>{{ entity.category }}</td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.employee }}</td>
+                <td>{% if entity.datestart %}{{ entity.datestart|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.timestart }}</td>
+                <td>{% if entity.dateed %}{{ entity.dateed|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.timeed }}</td>
+                <td>{{ entity.moderator }}</td>
+                <td>{% if entity.stamp %}{{ entity.stamp|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('timelog_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('timelog_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('timelog_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

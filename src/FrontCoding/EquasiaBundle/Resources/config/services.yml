@@ -1,0 +1,18 @@
+parameters:
+#    front_coding_equasia.example.class: FrontCoding\EquasiaBundle\Example
+
+services:
+#    front_coding_equasia.example:
+#        class: %front_coding_equasia.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    front_coding_equasia.locale_listener:
+        class: FrontCoding\EquasiaBundle\EventListener\LocaleListener
+        arguments: ["%kernel.default_locale%"]
+        tags:
+            - { name: kernel.event_subscriber }
+    front_coding_equasia.twig.controller_action_extension:
+        class: FrontCoding\EquasiaBundle\Twig\Extension\ControllerActionExtension
+        calls:
+            - [setRequest, ["@?request="]]
+        tags:
+            - { name: twig.extension }

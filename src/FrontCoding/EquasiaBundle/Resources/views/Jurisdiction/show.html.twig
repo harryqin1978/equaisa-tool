@@ -1,0 +1,65 @@
+{% extends "FrontCodingEquasiaBundle::layout.html.twig" %}
+
+{% block breadcrumb %}
+    <li>
+        <a href="{{ path('jurisdiction') }}">Jurisdiction</a>
+        <span class="divider"></span>
+    </li>
+    <li>{{ entity.nameLanguage1 }}{% if entity.nameLanguage2 %} / {{ entity.nameLanguage2 }}{% endif %}</li>
+{% endblock %}
+
+{% block pagetitle %}{{ entity.nameLanguage1 }}{% if entity.nameLanguage2 %} / {{ entity.nameLanguage2 }}{% endif %}{% endblock %}
+
+{% block nav %}
+    {% include "FrontCodingEquasiaBundle:Jurisdiction:nav.html.twig" %}
+{% endblock %}
+
+{% block content -%}
+    <h1>{{ entity.nameLanguage1 }}{% if entity.nameLanguage2 %} / {{ entity.nameLanguage2 }}{% endif %}</h1>
+
+    <table class="record_properties table table-bordered table-striped table-hover table-condensed" id="table_left">
+        <tbody>
+            <tr>
+                <th>Namelanguage1</th>
+                <td>{{ entity.nameLanguage1 }}</td>
+            </tr>
+            <tr>
+                <th>Namelanguage2</th>
+                <td>{{ entity.nameLanguage2 }}</td>
+            </tr>
+            <tr>
+                <th>Countrylanguage1</th>
+                <td>{{ entity.countryLanguage1 }}</td>
+            </tr>
+            <tr>
+                <th>Countrylanguage2</th>
+                <td>{{ entity.countryLanguage2 }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ entity.description }}</td>
+            </tr>
+{#             <tr>
+                <th>Moderator</th>
+                <td>{{ entity.moderator }}</td>
+            </tr>
+            <tr>
+                <th>Stamp</th>
+                <td>{{ entity.stamp|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+ #}        </tbody>
+    </table>
+
+    <a href="{{ path('jurisdiction') }}" class="btn btn-primary btn-lg">
+        Back to the list
+    </a>
+    <a href="{{ path('jurisdiction_edit', { 'id': entity.id }) }}" class="btn btn-primary btn-lg">
+        Edit
+    </a>
+    {{ form(delete_form) }}
+
+{% endblock %}

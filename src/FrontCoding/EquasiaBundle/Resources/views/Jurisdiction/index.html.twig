@@ -1,0 +1,58 @@
+{% extends "FrontCodingEquasiaBundle::layout.html.twig" %}
+
+{% block pagetitle %}Jurisdiction list{% endblock %}
+
+{% block breadcrumb %}
+    <li>Jurisdiction</li>
+{% endblock %}
+
+{% block nav %}
+    {% include "FrontCodingEquasiaBundle:Jurisdiction:nav.html.twig" %}
+{% endblock %}
+
+{% block content -%}
+    <h1>Jurisdiction list</h1>
+
+    <table class="records_list table table-bordered table-striped table-hover table-condensed">
+        <thead>
+            <tr>
+                <th>Name (English)</th>
+                <th>Name (Native language)</th>
+                <th>Country (English)</th>
+                <th>Country (Native language)</th>
+{#                 <th>Description</th>
+                <th>Moderator</th>
+                <th>Stamp</th>
+                <th>Id</th>
+ #}                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('jurisdiction_show', { 'id': entity.id }) }}">{{ entity.nameLanguage1 }}</a></td>
+                <td>{{ entity.nameLanguage2 }}</td>
+                <td>{{ entity.countryLanguage1 }}</td>
+                <td>{{ entity.countryLanguage2 }}</td>
+{#                 <td>{{ entity.description }}</td>
+                <td>{{ entity.moderator }}</td>
+                <td>{% if entity.stamp %}{{ entity.stamp|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.id }}</td>
+ #}             <td>
+                    <div class="btn-group">
+                        <a href="{{ path('jurisdiction_show', { 'id': entity.id }) }}" class="btn btn-alt btn-primary" title="Show" alt="Show"><span class="awe-tasks"></span></a>
+                        <a href="{{ path('jurisdiction_edit', { 'id': entity.id }) }}" class="btn btn-alt btn-primary" title="Edit" alt="Edit"><span class="awe-wrench"></span></a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% include "FrontCodingEquasiaBundle::pagination.html.twig" %}
+
+    <a href="{{ path('jurisdiction_new') }}" class="btn btn-primary btn-lg">
+        Create a new entry
+    </a>
+    
+{% endblock %}

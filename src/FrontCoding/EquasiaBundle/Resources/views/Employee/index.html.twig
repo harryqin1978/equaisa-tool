@@ -1,0 +1,196 @@
+{% extends "FrontCodingEquasiaBundle::layout.html.twig" %}
+
+{% block pagetitle %}Employee list{% endblock %}
+
+{% block breadcrumb %}
+    <li>Employee</li>
+{% endblock %}
+
+{% block nav %}
+    {% include "FrontCodingEquasiaBundle:Employee:nav.html.twig" %}
+{% endblock %}
+
+{% block content -%}
+    <h1>Employee list</h1>
+
+    <table class="records_list table table-bordered table-striped table-hover table-condensed">
+        <thead>
+            <tr>
+                <th>Firstname (English)</th>
+                <th>Familyname (English)</th>
+                <th>Firstname (Native language)</th>
+                <th>Familyname (Native language)</th>
+                <th>Gender</th>
+                <th>Title</th>
+                <th>Username</th>
+                {# <th>Password</th> #}
+                <th>Emailcompany</th>
+{#                 <th>Emailpersonal</th>
+                <th>Emailgoogle</th>
+                <th>Skype</th>
+                <th>Mobile1</th>
+                <th>Mobile2</th>
+                <th>Jobtitle</th>
+                <th>Datestart</th>
+                <th>Dateend</th>
+                <th>Contractnumber</th>
+                <th>Idorpassport</th>
+                <th>Salaryofficial</th>
+                <th>Salaryunofficial</th>
+                <th>Salaryofficialcurrency</th>
+                <th>Salaryunofficialcurrency</th>
+                <th>Salarynotes</th>
+                <th>Nameofaddresslanguage1</th>
+                <th>Nameofaddresslanguage2</th>
+                <th>Addressline1language1</th>
+                <th>Addressline1language2</th>
+                <th>Addressline2language1</th>
+                <th>Addressline2language2</th>
+                <th>Citylanguage1</th>
+                <th>Citylanguage2</th>
+                <th>Regionlanguage1</th>
+                <th>Regionlanguage2</th>
+                <th>Zippostalcode</th>
+                <th>Countrylanguage1</th>
+                <th>Countrylanguage2</th>
+                <th>Hometownnameofaddresslanguage1</th>
+                <th>Hometownnameofaddresslanguage2</th>
+                <th>Hometownaddressline1language1</th>
+                <th>Hometownaddressline1language2</th>
+                <th>Hometownaddressline2language1</th>
+                <th>Hometownaddressline2language2</th>
+                <th>Hometowncitylanguage1</th>
+                <th>Hometowncitylanguage2</th>
+                <th>Hometownregionlanguage1</th>
+                <th>Hometownregionlanguage2</th>
+                <th>Hometownzippostalcode</th>
+                <th>Hometowncountrylanguage1</th>
+                <th>Hometowncountrylanguage2</th>
+                <th>Banknamelanguage1</th>
+                <th>Banknamelanguage2</th>
+                <th>Bankbeneficiarylanguage1</th>
+                <th>Bankbeneficiarylanguage2</th>
+                <th>Bankbranchnamelanguage1</th>
+                <th>Bankbranchnamelanguage2</th>
+                <th>Banknameofaddresslanguage1</th>
+                <th>Banknameofaddresslanguage2</th>
+                <th>Bankaddressline1language1</th>
+                <th>Bankaddressline1language2</th>
+                <th>Bankaddressline2language1</th>
+                <th>Bankaddressline2language2</th>
+                <th>Bankcitylanguage1</th>
+                <th>Bankcitylanguage2</th>
+                <th>Bankregionlanguage1</th>
+                <th>Bankregionlanguage2</th>
+                <th>Bankzippostalcode</th>
+                <th>Bankcountrylanguage1</th>
+                <th>Bankcountrylanguage2</th>
+                <th>Banknumber</th>
+                <th>Bankiban</th>
+                <th>Dateofbirth</th>
+                <th>Notes</th>
+                <th>Picture</th>
+                <th>Status</th>
+                <th>Stamp</th>
+                <th>Id</th>
+ #}                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('employee_show', { 'id': entity.id }) }}">{{ entity.firstnameLanguage1 }}</a></td>
+                <td>{{ entity.familynameLanguage1 }}</td>
+                <td>{{ entity.firstnameLanguage2 }}</td>
+                <td>{{ entity.familynameLanguage2 }}</td>
+                <td>{{ entity.gender }}</td>
+                <td>{{ entity.title }}</td>
+                <td>{{ entity.username }}</td>
+                {# <td>{{ entity.password }}</td> #}
+                <td>{{ entity.emailCompany }}</td>
+{#                 <td>{{ entity.emailPersonal }}</td>
+                <td>{{ entity.emailGoogle }}</td>
+                <td>{{ entity.skype }}</td>
+                <td>{{ entity.mobile1 }}</td>
+                <td>{{ entity.mobile2 }}</td>
+                <td>{{ entity.jobTitle }}</td>
+                <td>{% if entity.dateStart %}{{ entity.dateStart|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateEnd %}{{ entity.dateEnd|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.contractNumber }}</td>
+                <td>{{ entity.idOrPassport }}</td>
+                <td>{{ entity.salaryOfficial }}</td>
+                <td>{{ entity.salaryUnofficial }}</td>
+                <td>{{ entity.salaryOfficialCurrency }}</td>
+                <td>{{ entity.salaryUnofficialCurrency }}</td>
+                <td>{{ entity.salaryNotes }}</td>
+                <td>{{ entity.nameOfAddressLanguage1 }}</td>
+                <td>{{ entity.nameOfAddressLanguage2 }}</td>
+                <td>{{ entity.addressLine1Language1 }}</td>
+                <td>{{ entity.addressLine1Language2 }}</td>
+                <td>{{ entity.addressLine2Language1 }}</td>
+                <td>{{ entity.addressLine2Language2 }}</td>
+                <td>{{ entity.cityLanguage1 }}</td>
+                <td>{{ entity.cityLanguage2 }}</td>
+                <td>{{ entity.regionLanguage1 }}</td>
+                <td>{{ entity.regionLanguage2 }}</td>
+                <td>{{ entity.zipPostalCode }}</td>
+                <td>{{ entity.countryLanguage1 }}</td>
+                <td>{{ entity.countryLanguage2 }}</td>
+                <td>{{ entity.hometownNameOfAddressLanguage1 }}</td>
+                <td>{{ entity.hometownNameOfAddressLanguage2 }}</td>
+                <td>{{ entity.hometownAddressLine1Language1 }}</td>
+                <td>{{ entity.hometownAddressLine1Language2 }}</td>
+                <td>{{ entity.hometownAddressLine2Language1 }}</td>
+                <td>{{ entity.hometownAddressLine2Language2 }}</td>
+                <td>{{ entity.hometownCityLanguage1 }}</td>
+                <td>{{ entity.hometownCityLanguage2 }}</td>
+                <td>{{ entity.hometownRegionLanguage1 }}</td>
+                <td>{{ entity.hometownRegionLanguage2 }}</td>
+                <td>{{ entity.hometownZipPostalCode }}</td>
+                <td>{{ entity.hometownCountryLanguage1 }}</td>
+                <td>{{ entity.hometownCountryLanguage2 }}</td>
+                <td>{{ entity.bankNameLanguage1 }}</td>
+                <td>{{ entity.bankNameLanguage2 }}</td>
+                <td>{{ entity.bankBeneficiaryLanguage1 }}</td>
+                <td>{{ entity.bankBeneficiaryLanguage2 }}</td>
+                <td>{{ entity.bankBranchNameLanguage1 }}</td>
+                <td>{{ entity.bankBranchNameLanguage2 }}</td>
+                <td>{{ entity.bankNameOfAddressLanguage1 }}</td>
+                <td>{{ entity.bankNameOfAddressLanguage2 }}</td>
+                <td>{{ entity.bankAddressLine1Language1 }}</td>
+                <td>{{ entity.bankAddressLine1Language2 }}</td>
+                <td>{{ entity.bankAddressLine2Language1 }}</td>
+                <td>{{ entity.bankAddressLine2Language2 }}</td>
+                <td>{{ entity.bankCityLanguage1 }}</td>
+                <td>{{ entity.bankCityLanguage2 }}</td>
+                <td>{{ entity.bankRegionLanguage1 }}</td>
+                <td>{{ entity.bankRegionLanguage2 }}</td>
+                <td>{{ entity.bankZipPostalCode }}</td>
+                <td>{{ entity.bankCountryLanguage1 }}</td>
+                <td>{{ entity.bankCountryLanguage2 }}</td>
+                <td>{{ entity.bankNumber }}</td>
+                <td>{{ entity.bankIban }}</td>
+                <td>{% if entity.dateOfBirth %}{{ entity.dateOfBirth|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.notes }}</td>
+                <td>{{ entity.picture }}</td>
+                <td>{{ entity.status }}</td>
+                <td>{% if entity.stamp %}{{ entity.stamp|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.id }}</td>
+ #}             <td>
+                    <div class="btn-group">
+                        <a href="{{ path('employee_show', { 'id': entity.id }) }}" class="btn btn-alt btn-primary" title="Show" alt="Show"><span class="awe-tasks"></span></a>
+                        <a href="{{ path('employee_edit', { 'id': entity.id }) }}" class="btn btn-alt btn-primary" title="Edit" alt="Edit"><span class="awe-wrench"></span></a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% include "FrontCodingEquasiaBundle::pagination.html.twig" %}
+
+    <a href="{{ path('employee_new') }}" class="btn btn-primary btn-lg">
+        Create a new entry
+    </a>
+
+{% endblock %}

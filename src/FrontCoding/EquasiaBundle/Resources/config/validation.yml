@@ -1,0 +1,56 @@
+FrontCoding\EquasiaBundle\Entity\Company:
+    properties:
+        nameLanguage1:
+            - NotBlank: ~
+        nameLanguage2:
+            - NotBlank: ~
+        jurisdictionId:
+            - NotBlank: ~
+        registrationNumber:
+            - Regex:
+                  pattern: "/^[0-9\-]+$/i"
+
+FrontCoding\EquasiaBundle\Entity\Client:
+    properties:
+        nameLanguage1:
+            - NotBlank: ~
+        nameLanguage2:
+            - NotBlank: ~
+        companyId:
+            - NotBlank: ~
+        contactId:
+            - NotBlank: ~
+
+FrontCoding\EquasiaBundle\Entity\Jurisdiction:
+    properties:
+        nameLanguage1:
+            - NotBlank: ~
+        nameLanguage2:
+            - NotBlank: ~
+
+FrontCoding\EquasiaBundle\Entity\Contact:
+    properties:
+        firstnameLanguage1:
+            - NotBlank: ~
+        familynameLanguage1:
+            - NotBlank: ~
+        firstnameLanguage2:
+            - NotBlank: ~
+        familynameLanguage2:
+            - NotBlank: ~
+        username:
+            - NotBlank: ~
+
+FrontCoding\EquasiaBundle\Entity\Employee:
+    properties:
+        firstnameLanguage1:
+            - NotBlank: ~
+        familynameLanguage1:
+            - NotBlank: ~
+        firstnameLanguage2:
+            - NotBlank: ~
+        familynameLanguage2:
+            - NotBlank: ~
+        username:
+            - NotBlank: ~
+

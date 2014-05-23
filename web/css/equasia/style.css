@@ -1,0 +1,128 @@
+.table-condensed th {
+  text-align: center;
+}
+
+.table-condensed td {
+  text-align: left;
+}
+
+.table-condensed th, .table-condensed td {
+  padding: 10px 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0px;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+form select {
+  width: 220px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin-right: 20px;
+}
+
+form label {
+  font-weight: bold;
+}
+ 
+#btn_mrg {
+  margin-top: -10px;
+}
+
+#form_submit {
+  margin-top: 10px;
+}
+
+ul.pagination li {
+  display: inline-block;
+  list-style: none;
+}
+
+.table-bordered th, .table-bordered td {
+  border-left: 1px solid #575c58;
+}
+
+.table th, .table td {
+  padding: 8px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid #575c58;
+}
+
+.table-bordered {
+  border: 1px solid #575c58;
+  border-collapse: separate;
+  border-left: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.table.records_list th {
+  background-color:#7cbf31;
+  color: #FFF;
+}
+
+.table.records_list.table-hover tbody tr:hover>td, .table.records_list.table-hover tbody tr:hover>th, .table.records_list.table-hover tbody tr:hover>td>a {
+  background-color: #37bed2;
+  color: #FFF;
+}
+ 
+.table.records_list td {
+  padding: 8px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid #575c58;
+}
+
+.table.record_properties.table-bordered th {
+  background-color: #37bed2;
+  color: #FFF;
+  width: 30%;
+}
+
+input, textarea, .uneditable-input {
+  width: 320px;
+}
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+  height: 25px;
+  line-height: 25px;
+  border-style:ridge;
+  -webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+ 
+}
+
+form select {
+  width: 333px;
+  height: 37px;  
+}
+
+form textarea {
+  height: 100px;
+}
+
+.table.records_list td ul.square {
+  width: 115px;
+}
+
+.table.records_list td ul.square li {
+  display: inline-block;
+  list-style: none;
+}
+select,textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+ 
+
+ 
+}
+.btn-danger{
+  margin-left: 2px;
+}

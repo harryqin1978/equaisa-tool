@@ -1,0 +1,60 @@
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+        FrontCoding\EquasiaBundle\Entity\Employee:
+            algorithm:        plaintext
+            iterations:       1
+        FrontCoding\EquasiaBundle\Entity\Contact:
+            algorithm:        plaintext
+            iterations:       1
+
+    role_hierarchy:
+        ROLE_EMPLOYEE:    ROLE_USER
+        ROLE_CONTACT:     ROLE_USER
+        ROLE_ADMIN:       [ROLE_USER, ROLE_EMPLOYEE, ROLE_CONTACT]
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        chain_provider:
+            chain:
+                providers: [db_employee, db_contact]
+        db_employee:
+            entity:
+                class: FrontCoding\EquasiaBundle\Entity\Employee
+                property: username
+        db_contact:
+            entity:
+                class: FrontCoding\EquasiaBundle\Entity\Contact
+                property: username
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        login:
+            pattern:  ^/demo/secured/login$
+            security: false
+
+        secured_area:
+            pattern:    ^/
+            anonymous: ~
+            form_login:
+                login_path:  login
+                check_path:  login_check
+                default_target_path: dashboard
+            logout:
+                path:   logout
+                target: login
+            #anonymous: ~
+            #http_basic:
+            #    realm: "Secured Demo Area"
+
+    access_control:
+        - { path: ^/dashboard, roles: ROLE_USER }
+        - { path: ^/jurisdiction, roles: ROLE_EMPLOYEE }
+        - { path: ^/employee, roles: ROLE_EMPLOYEE }
+        - { path: ^/contact, roles: ROLE_EMPLOYEE }
+        - { path: ^/company, roles: ROLE_EMPLOYEE }
+        - { path: ^/client, roles: [ROLE_EMPLOYEE, ROLE_CONTACT] }
+        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
